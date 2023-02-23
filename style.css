@@ -253,8 +253,15 @@ h4{
 }
 
 .card:hover{
-    cursor: pointer;
     transform: scale(1.03);
+}
+
+.card > .title:hover{
+    cursor: pointer;
+}
+
+.card-actions > img:hover{
+    cursor: pointer;
 }
 
 .description, .project {
