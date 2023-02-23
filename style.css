@@ -11,10 +11,6 @@
     
   }
   
-  html, body {
-    overflow: hidden;
-  }
-  
   ul {
     list-style: none;
   }
@@ -26,17 +22,17 @@
   .container {
     display: grid;
     grid-template-columns: 300px 1fr;
-    /* grid-template-rows: 1fr 4fr; */
   }
   
   .dashboard {
-    /* height: 100vh; */
     padding-top: calc(1em + 10px);
     padding-left: 10px;
     background-color: dodgerblue;
     color: #ffffff;
     display: flex;
     flex-direction: column;
+    grid-column: 1;
+    grid-row: 1 / -3;
   }
   
   .dashboard ul {
@@ -48,7 +44,7 @@
     grid-template-rows: repeat(5, 1fr) 2fr repeat(3, 1fr);
   }
   
-  .dashboard > span {
+  .dashboard > div {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -71,6 +67,22 @@
     margin: 0;
   }
   
+  .dashboard {
+    position: relative;
+  }
+
+  .dashboard-content, .dashboard > div {
+    position: fixed;
+  }
+
+  .dashboard > div {
+    top: 20px;
+  }
+
+  .dashboard-content {
+    top: 50px;
+  }
+
   .dashboard-content > li {
     margin: 7px 0;
     display: grid;
@@ -81,11 +93,12 @@
   
   .header {
     padding-top: 1em;
+    height: 150px;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    /* grid-template-rows: 1fr 2fr; */
-    grid-template-rows: 50px 100px;
+    grid-template-rows: 1fr 2fr;
     align-items: start;
+    grid-column: 2;
   }
   
   .header > .top-left{
@@ -99,6 +112,7 @@
   .search {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    font-size: 12px;
   }
   
   .top-left > input {
@@ -133,13 +147,8 @@
     gap: 10px;
   }
 
-  /* .header > .icon {
-    width: 40px;
-    height: 40px;
-  }
-   */
   .content {
-    grid-column: 2 / -1;
+    grid-column: 2;
     display: grid;
     grid-template-columns: 2fr 1fr;
   }
@@ -153,10 +162,11 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    box-shadow: 0 2px 2px -2px rgb(167, 167, 167);
   }
 
   .profile > .greeting {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .profile-picture > .icon.profile{
@@ -171,6 +181,7 @@
     justify-content: space-around;
     padding: 10px;
     gap: 25px;
+    box-shadow: 0 2px 2px -2px rgb(167, 167, 167);
 }
 
 .bottom-right > button {
@@ -182,3 +193,36 @@
     background-color: #489aeb;
     color: #ffffff;
 }
+
+.content {
+    padding: 25px 10px;
+}
+.projects > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #489aeb 2%, #ffffff 0);
+}
+
+.card .description {
+    color: grey;
+    font-weight: normal;
+    font-size: 12px;
+  }
+  
+  .card .title {
+    font-size: 15px;
+  }
+
+  .card-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
